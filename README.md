@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Telegram PM Bot
+这是一个 TG 私聊 Bot 的 Node.js 实现，可以在 Vercel 上运行。
 
-## Getting Started
+## 如何使用
+1. Fork 本仓库
+2. 在 Vercel 中导入项目
+3. 在 Vercel 项目的环境变量中增加如下内容：
 
-First, run the development server:
+| 环境变量名        | 内容                   | 备注                                            |
+|--------------|----------------------|-----------------------------------------------|
+| TG_TOKEN     | Telegram Bot 的 Token |                                               |
+| SECRET_TOKEN | PM Bot 使用的 Token     | 在 TG 调用我们的 WebHook 的过程中传递，以保证消息是由 TG 的服务器发出的。 |
+| ADMIN_ID     | Bot 管理员的 Uid         |                                               |
 
-```bash
-npm run dev
-# or
-yarn dev
+4. 在本地使用 `curl` 命令，向 Bot 添加钩子（替换尖括号里面的内容）。该 PM Bot 的 WebHook 地址通常是 `https://<项目使用的域名>/api/update`。
+
+```shell
+curl --request POST --url https://api.telegram.org/bot<Telegram 的 Token>/setWebhook --header 'content-type: application/json' --data '{"url": "<WebHook 地址>", "secret_token": "<PM Bot 的 SecretToken>"}'
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 驾照
+Apache 2.0
