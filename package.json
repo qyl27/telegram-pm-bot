@@ -10,13 +10,12 @@
   },
   "dependencies": {
     "next": "12.3.1",
-    "node-telegram-bot-api": "^0.59.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "telegraf": "^4.10.0"
   },
   "devDependencies": {
     "@types/node": "^18.8.3",
-    "@types/node-telegram-bot-api": "^0.57.2",
     "@types/react": "^18.0.21",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.1",
